@@ -1,0 +1,24 @@
+{
+  "name": "genai-learning-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@google/genai": "^2.12.0",
+    "@langchain/community": "^1.1.29",
+    "@langchain/openai": "^1.5.5",
+    "@langchain/qdrant": "^1.0.3",
+    "@qdrant/js-client-rest": "^1.18.0",
+    "dotenv": "^17.4.2",
+    "openai": "^6.47.0",
+    "pdf-parse": "^2.4.5",
+    "tiktoken": "^1.0.22"
+  }
+}
