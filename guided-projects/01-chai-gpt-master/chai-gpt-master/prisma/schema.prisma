@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Clerk user id (`user_...`) is the primary key — sync via Clerk webhooks or on first sign-in.
+model User {
+  id        String   @id
+  clerkId   String   @unique
+  email     String?  @unique
+  firstName String?
+  lastName  String?
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  conversations Conversation[]
+}
+
+model Conversation {
+  id            String   @id @default(cuid())
+  userId        String
+  title         String   @default("New Chat")
+  model         String? // e.g. openai/gpt-4.1 — per-thread model override
+  systemPrompt  String? @db.Text
+  isPinned      Boolean  @default(false)
+  isArchived    Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  lastMessageAt DateTime @default(now()) // denormalized for fast sidebar sorting
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages Message[]
+
+  @@index([userId, lastMessageAt(sort: Desc)])
+  @@index([userId, isPinned, lastMessageAt(sort: Desc)])
+}
+
+enum MessageRole {
+  USER
+  ASSISTANT
+  SYSTEM
+  TOOL
+}
+
+enum MessageStatus {
+  PENDING // created before streaming finishes
+  COMPLETE
+  ERROR
+}
+
+model Message {
+  id             String        @id @default(cuid())
+  conversationId String
+  role           MessageRole
+  status         MessageStatus @default(COMPLETE)
+  content        String        @db.Text // plain text for search, previews, and simple history
+  parts          Json? // AI SDK UIMessage parts (text, files, tool calls, tool results)
+  metadata       Json? // usage, finishReason, model, provider, etc.
+  parentId       String? // message branching (edit / regenerate)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  parent       Message?     @relation("MessageBranches", fields: [parentId], references: [id], onDelete: SetNull)
+  children     Message[]    @relation("MessageBranches")
+
+  // Load last N messages: orderBy createdAt desc, take N, reverse in app code
+  @@index([conversationId, createdAt(sort: Asc)])
+}
