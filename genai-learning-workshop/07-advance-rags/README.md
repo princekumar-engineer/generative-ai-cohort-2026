@@ -1,12 +1,8 @@
-<div style="background-color: #2d1800; border-left: 5px solid #f0883e; padding: 12px; margin-bottom: 15px; border-radius: 4px;">
-  <strong style="color: #f0883e;">⚠️ WARNING: Educational & Demonstration Purpose Only</strong>
-  <br/><br/>
-  This repository is designed exclusively for <b>educational and learning purposes</b> to demonstrate advanced RAG (Retrieval-Augmented Generation) concepts—such as HyDE, Step-Back Prompting, Sub-Query Decomposition, Reciprocal Rank Fusion (RRF), and background worker queues.
-  <br/><br/>
-  <b>Note:</b> This codebase is provided as-is for conceptual understanding and architecture reference. It is <b>not configured or intended for production deployment</b> and may require additional security, input validation, error handling, storage cleanup, and environment configuration before running.
-</div>
-
-
+> ⚠️ **WARNING: Educational & Demonstration Purpose Only**
+> 
+> This repository is designed exclusively for **educational and learning purposes** to demonstrate advanced RAG (Retrieval-Augmented Generation) concepts—such as HyDE, Step-Back Prompting, Sub-Query Decomposition, Reciprocal Rank Fusion (RRF), and background worker queues.
+> 
+> **Note:** This codebase is provided as-is for conceptual understanding and architecture reference. It is **not configured or intended for production deployment** and may require additional security, input validation, error handling, storage cleanup, and environment configuration before running.
 ---
 
 # Advanced RAG Pipeline
@@ -353,8 +349,10 @@ Where:
 * $k$ is a smoothing constant configured via `RRF_K` (default: `60`).
 
 ---
-> ⚠️ **WARNING: Educational & Demonstration Purpose Only**
-> 
-> This repository is designed exclusively for **educational and learning purposes** to demonstrate advanced RAG (Retrieval-Augmented Generation) concepts—such as HyDE, Step-Back Prompting, Sub-Query Decomposition, Reciprocal Rank Fusion (RRF), and background worker queues.
-> 
-> **Note:** This codebase is provided as-is for conceptual understanding and architecture reference. It is **not configured or intended for production deployment** and may require additional security, input validation, error handling, storage cleanup, and environment configuration before running.
+<div style="background-color: #2d1800; border-left: 5px solid #f0883e; padding: 12px; margin-bottom: 15px; border-radius: 4px;">
+  <strong style="color: #f0883e;">⚠️ WARNING: Educational & Demonstration Purpose Only</strong>
+  <br/><br/>
+  This repository is designed exclusively for <b>educational and learning purposes</b> to demonstrate advanced RAG (Retrieval-Augmented Generation) concepts—such as HyDE, Step-Back Prompting, Sub-Query Decomposition, Reciprocal Rank Fusion (RRF), and background worker queues.
+  <br/><br/>
+  <b>Note:</b> This codebase is provided as-is for conceptual understanding and architecture reference. It is <b>not configured or intended for production deployment</b> and may require additional security, input validation, error handling, storage cleanup, and environment configuration before running.
+</div>
