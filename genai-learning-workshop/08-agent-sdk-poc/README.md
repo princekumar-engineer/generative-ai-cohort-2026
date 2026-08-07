@@ -1,4 +1,4 @@
-# Agent SDK Proof of Concept
+# 08 - Agent SDK Proof of Concept
 
 A lightweight TypeScript framework for building structured, step-by-step LLM agents using a custom reasoning pipeline harness and interceptor pattern.
 

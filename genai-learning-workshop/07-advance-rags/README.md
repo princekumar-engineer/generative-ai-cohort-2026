@@ -1,11 +1,12 @@
-> ⚠️ **WARNING: Educational & Demonstration Purpose Only**
-> 
-> This repository is designed exclusively for **educational and learning purposes** to demonstrate advanced RAG (Retrieval-Augmented Generation) concepts—such as HyDE, Step-Back Prompting, Sub-Query Decomposition, Reciprocal Rank Fusion (RRF), and background worker queues.
-> 
-> **Note:** This codebase is provided as-is for conceptual understanding and architecture reference. It is **not configured or intended for production deployment** and may require additional security, input validation, error handling, storage cleanup, and environment configuration before running.
----
+# 07 - Advanced RAG Pipeline
 
-# Advanced RAG Pipeline
+> ⚠️ **WARNING: Educational Purpose Only**
+>
+> This repository is for **learning and architectural reference only**. It demonstrates advanced RAG concepts and design patterns, and some examples are intentionally simplified or incomplete, so they **may not work out of the box**.
+>
+> **It is not production-ready** and requires additional implementation, testing, security, and configuration before real-world use.
+
+---
 
 An asynchronous, queue-backed Retrieval-Augmented Generation (RAG) pipeline built with **Node.js**, **Express**, **BullMQ**, **Qdrant**, and **OpenAI**.
 
