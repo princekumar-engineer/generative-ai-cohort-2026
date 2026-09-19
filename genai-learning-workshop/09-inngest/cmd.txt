@@ -1,0 +1,17 @@
+mkdir inngest-demo
+cd inngest-demo
+
+npm init -y
+npm install inngest express
+
+mkdir inngest
+
+touch server.js
+touch inngest/client.js
+touch inngest/functions.js
+
+npm pkg set type=module
+npm pkg set scripts.start="node server.js"
+
+npm install -D nodemon
+npm pkg set scripts.dev="nodemon server.js"
